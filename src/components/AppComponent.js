@@ -1,13 +1,14 @@
-import "./App.css";
-import React, { useState, useEffect } from "react";
-import NewsList from "./components/NewsList";
 
-const API_KEY = "46054c0d9a2445419904fc5e91d922c8";
+
+import React, { useState, useEffect } from 'react';
+import NewsList from './NewsList';
+
+const API_KEY = '46054c0d9a2445419904fc5e91d922c8';
 
 const App = () => {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 5;
 
@@ -19,7 +20,7 @@ const App = () => {
         );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch news");
+          throw new Error('Failed to fetch news');
         }
 
         const data = await response.json();
@@ -72,12 +73,11 @@ const App = () => {
   );
 };
 
-const Pagination = ({
-  articlesPerPage,
-  totalArticles,
-  paginate,
-  currentPage,
-}) => {
+
+
+
+
+const Pagination = ({ articlesPerPage, totalArticles, paginate, currentPage }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalArticles / articlesPerPage); i++) {
@@ -88,7 +88,7 @@ const Pagination = ({
     <nav>
       <ul className="pagination">
         {pageNumbers.map((number) => (
-          <li key={number} className={currentPage === number ? "active" : ""}>
+          <li key={number} className={currentPage === number ? 'active' : ''}>
             <button onClick={() => paginate(number)}>{number}</button>
           </li>
         ))}
